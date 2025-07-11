@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เติม Roblox | หน้าแรก</title>
+  <style>
+    body { margin: 0; background-color: #111; color: white; font-family: 'Segoe UI', sans-serif; }
+    header { background: #1f1f1f; padding: 20px; display: flex; justify-content: space-between; align-items: center; position: relative; }
+    .logo { font-size: 22px; color: #00ffd5; }
+    .menu-icon { width: 30px; height: 25px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
+    .menu-icon div { height: 4px; background: #00ffd5; }
+    .menu { position: absolute; right: 20px; top: 60px; background: #222; padding: 10px; border-radius: 8px; display: none; flex-direction: column; }
+    .menu a { color: white; text-decoration: none; margin: 5px 0; }
+    .container { padding: 30px; max-width: 500px; margin: auto; }
+    label { display: block; margin-top: 15px; }
+    input, select { width: 100%; padding: 10px; margin-top: 8px; background: #2a2a2a; color: white; border: none; border-radius: 6px; }
+    button { margin-top: 30px; width: 100%; padding: 15px; background-color: #00ffd5; border: none; border-radius: 8px; font-size: 18px; color: black; font-weight: bold; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Roblox เติมเงิน</div>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+    <div class="menu" id="menu">
+      <a href="index.html">🏠 หน้าแรก</a>
+      <a href="history.html">🧾 ประวัติ</a>
+      <a href="login.html">🔐 เข้าสู่ระบบ</a>
+      <a href="register.html">📝 สมัครสมาชิก</a>
+    </div>
+  </header>
+  <div class="container">
+    <h2>เลือกเติม:</h2>
+    <select id="product">
+      <option value="robux">💸 Robux</option>
+      <option value="chicken">🍗 ไก่ตัน</option>
+    </select>
+    <label for="userid">Roblox Username</label>
+    <input type="text" id="userid" placeholder="กรอกชื่อผู้ใช้ Roblox"/>
+    <label for="amount">จำนวนที่ต้องการ</label>
+    <select id="amount">
+      <option value="50">50 Robux - ฿20</option>
+      <option value="100">100 Robux - ฿40</option>
+      <option value="1">1 ไก่ตัน - ฿9</option>
+      <option value="5">5 ไก่ตัน - ฿40</option>
+    </select>
+    <label for="payment">ช่องทางชำระเงิน</label>
+    <select id="payment">
+      <option value="truemoney">TrueMoney Wallet</option>
+    </select>
+    <button onclick="confirm()">ยืนยันการเติม</button>
+  </div>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+    }
+    function confirm() {
+      const user = document.getElementById("userid").value;
+      const product = document.getElementById("product").value;
+      const amount = document.getElementById("amount").value;
+      const pay = document.getElementById("payment").value;
+      alert("คุณจะเติม " + product + " จำนวน " + amount + "\nผ่าน " + pay + "\nชื่อผู้ใช้: " + user);
+    }
+  </script>
+</body>
+</html>
